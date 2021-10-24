@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Bank accounts page</title>
+</head>
+<body>
+<h2>Добавление владельца</h2>
+<form method="post" action="add_owner">
+    <input type="text" name="lastName" placeholder="Фамилия">
+    <input type="text" name="firstName" placeholder="Имя">
+    <input type="text" name="middleName" placeholder="Отчество">
+    <button type="submit">Добавить</button>
+</form>
+<h2>Добавление банковского аккаунта</h2>
+<form method="post" action="add_bank_account">
+    <input type="text" name="ownerId" placeholder="ID владельца">
+    <input type="text" name="sum" placeholder="Сумма">
+    <button type="submit">Добавить</button>
+</form>
+<h2>Пополнение счета</h2>
+<form method="post" action="replenishment_bank_account">
+    <input type="text" name="bankAccountId" placeholder="ID счета">
+    <input type="text" name="sum" placeholder="Сумма пополнения">
+    <button type="submit">Добавить</button>
+</form>
+<h2>Снятие со счета</h2>
+<form method="post" action="withdrawal_bank_account">
+    <input type="text" name="bankAccountId" placeholder="ID счета">
+    <input type="text" name="sum" placeholder="Сумма пополнения">
+    <button type="submit">Добавить</button>
+</form>
+<h2>Список владельцев</h2>
+{{#owners}}
+    <div>
+        <b>{{id}}</b>
+        <b>{{lastName}}</b>
+        <b>{{firstName}}</b>
+        <b>{{middleName}}</b>
+    </div>
+{{/owners}}
+<h2>Список банковских счетов</h2>
+{{#bankAccounts}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{lastName}}</span>
+        <i>{{sum}}</i>
+    </div>
+{{/bankAccounts}}
+</body>
+</html>
